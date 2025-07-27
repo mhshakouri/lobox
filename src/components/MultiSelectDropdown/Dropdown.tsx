@@ -3,7 +3,7 @@ import { useState } from "react";
 import MultiSelectDropdownOption from "./Option";
 import type { IMultiSelectDropdownOption } from "./types";
 import MultiSelectDropdownInput from "./Input";
-import useClickOutside from "../../hooks/useClickoutside";
+import useClickOutside from "../../hooks/useClickOutside";
 
 export default function MultiSelectDropdown() {
   const [options, setOptions] = useState<IMultiSelectDropdownOption[]>([]);

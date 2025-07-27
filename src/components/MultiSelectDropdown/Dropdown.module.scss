@@ -1,15 +1,15 @@
-@import './_vars';
+@use "../../styles/_vars";
 
 .dropdown {
-    background: $surface;
-    padding: 1rem;
-    display: flex;
-    flex: 1 0 auto;
-    flex-direction: column;
+  background: vars.$surface;
+  padding: 1rem;
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
 }
 
 .optionsList {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }

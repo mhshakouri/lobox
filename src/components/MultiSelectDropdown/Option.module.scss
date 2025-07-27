@@ -1,20 +1,20 @@
-@import './_vars';
+@use "../../styles/_vars";
 
 .option {
-    background-color: $white;
-    cursor: pointer;
-    button {
-        background-color: unset;
-        outline: none;
-        border: none;
-        color: $gray;
-        width: 100%;
-    }
+  background-color: vars.$white;
+  cursor: pointer;
+  button {
+    background-color: unset;
+    outline: none;
+    border: none;
+    color: vars.$gray;
+    width: 100%;
+  }
 }
 
 .selected {
-    background: $lightblue;
-    button {
-        color: $blue;
-    }
+  background: vars.$lightblue;
+  button {
+    color: vars.$blue;
+  }
 }

@@ -1,24 +1,24 @@
-@import "./vars";
-@import "./mixins";
+@use "../../styles/_mixins";
+@use "../../styles/_vars";
 
 .input {
-  color: $blue;
+  color: vars.$blue;
   border: none;
-  background: $white;
+  background: vars.$white;
   padding: 0 1.5rem;
   outline: none;
-  @include box(100%, 1.5re);
+  @include mixins.box(100%, 1.5re);
   font-size: 1;
   &Wrapper {
-    border: 1px solid $ghost;
+    border: 1px solid vars.$ghost;
     height: 3rem;
     border-radius: 1.5rem;
     overflow: hidden;
     transition: box-shadow 0.15s ease-in-out, border 0.15s ease-in-out;
     position: relative;
     &:focus-within {
-      border-color: $blue;
-      box-shadow: 0 0 0.5rem 0 $blue;
+      border-color: vars.$blue;
+      box-shadow: 0 0 0.5rem 0 vars.$blue;
     }
   }
 }
@@ -27,7 +27,7 @@
   right: 1.5rem;
   top: 50%;
   transform: translateY(-50%);
-  @include box(2rem, 50%);
+  @include mixins.box(2rem, 50%);
   display: flex;
   background-color: transparent;
   border: none;
@@ -41,11 +41,11 @@
     outline: none;
   }
   &:hover {
-    background-color: $surface;
+    background-color: vars.$surface;
   }
   .icon {
-    color: $gray;
-    fill: $gray;
+    color: vars.$gray;
+    fill: vars.$gray;
     transition: transform 0.35s ease-in-out;
   }
   &.open {
