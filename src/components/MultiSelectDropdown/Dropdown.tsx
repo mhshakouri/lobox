@@ -15,17 +15,11 @@ export default function MultiSelectDropdown({
   updateSelections,
   updateItems,
 }: IMultiSelectDropdownProps) {
-  const [options, setOptions] = useState<IMultiSelectDropdownOption[]>([]);
-  const [selections, setSelections] = useState<string[]>([]);
+  const [options, setOptions] = useState<IMultiSelectDropdownOption[]>(
+    items ?? []
+  );
+  const [selections, setSelections] = useState<string[]>(selectedItems ?? []);
   const [listOpen, setListOpen] = useState<boolean>(false);
-
-  useEffect(() => {
-    if (items?.length) setOptions(items);
-  }, [items ?? []]);
-
-  useEffect(() => {
-    if (selectedItems?.length) setSelections(selectedItems);
-  }, [selectedItems ?? []]);
 
   const ref = useClickOutside<HTMLDivElement>(() => {
     setListOpen(false);

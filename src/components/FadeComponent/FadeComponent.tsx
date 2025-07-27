@@ -2,7 +2,11 @@ import React, { useState, useEffect } from "react";
 import type { FadeComponentProps } from "./types";
 import clx from "classnames";
 
-const FadeComponent: React.FC<FadeComponentProps> = ({ show, children }) => {
+const FadeComponent: React.FC<FadeComponentProps> = ({
+  show,
+  children,
+  className,
+}) => {
   const [isVisible, setIsVisible] = useState(false);
   const [isAnimating, setIsAnimating] = useState(true);
 
@@ -23,9 +27,11 @@ const FadeComponent: React.FC<FadeComponentProps> = ({ show, children }) => {
   if (!isVisible && !isAnimating) return null;
 
   return (
-    <div className={clx(isAnimating ? "fade-in" : "fade-out", "fade")}>
+    <span
+      className={clx(isAnimating ? "fade-in" : "fade-out", "fade", className)}
+    >
       {children}
-    </div>
+    </span>
   );
 };
 

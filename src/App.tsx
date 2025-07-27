@@ -5,8 +5,12 @@ import mockData from "./constants/mockData";
 import type { IMultiSelectDropdownOption } from "./components/MultiSelectDropdown/types";
 
 function App() {
-  const [items, setItems] = useState(mockData.items);
-  const [selectedItems, setSelectedItems] = useState(mockData.selectedItems);
+  const [items, setItems] = useState<IMultiSelectDropdownOption[]>(
+    mockData.items
+  );
+  const [selectedItems, setSelectedItems] = useState<string[]>(
+    mockData.selectedItems
+  );
   const updateItems = (items: IMultiSelectDropdownOption[]) => {
     setItems(items);
   };

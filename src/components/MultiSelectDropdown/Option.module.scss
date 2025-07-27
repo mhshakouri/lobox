@@ -3,7 +3,6 @@
 
 .option {
   background-color: vars.$white;
-  cursor: pointer;
   @include mixins.size(100%, 3rem);
   border-radius: 0.5rem;
   button {
@@ -16,9 +15,12 @@
     display: flex;
     padding: 0 1.5rem;
     align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
     .icon {
-      position: absolute;
-      right: 1.5rem;
+      justify-self: end;
+      display: flex;
+      place-content: center;
     }
   }
   &.selected {

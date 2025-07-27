@@ -24,19 +24,12 @@ export default function MultiSelectDropdownOption({
       <button type="button" onClick={onClick}>
         <span>
           {renderedSelectiontext}
-          <FadeComponent show={selected}>
-            <span>
-              <DynamicIcon
-                iconName={`Fa${value}` as FaIconName}
-                className={styles.icon}
-              />
-            </span>
+          <FadeComponent show={selected} className={styles.icon}>
+            <DynamicIcon iconName={`Fa${value}` as FaIconName} />
           </FadeComponent>
         </span>
-        <FadeComponent show={selected}>
-          <span>
-            <DynamicIcon iconName={`FaCheck`} className={styles.icon} />
-          </span>
+        <FadeComponent show={selected} className={styles.icon}>
+          <DynamicIcon iconName={`FaCheck`} />
         </FadeComponent>
       </button>
     </li>
