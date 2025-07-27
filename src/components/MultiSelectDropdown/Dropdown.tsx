@@ -1,5 +1,5 @@
 import styles from "./Dropdown.module.scss";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import type {
   IMultiSelectDropdownOption,
   IMultiSelectDropdownProps,
@@ -26,18 +26,20 @@ export default function MultiSelectDropdown({
   });
 
   const addNewItem = (value: string) => {
+    const newId = crypto.randomUUID();
     setOptions([
       ...options,
       {
         value,
-        id: crypto.randomUUID(),
+        id: newId,
       },
     ]);
     setListOpen(true);
+    toggleOptionSelection(newId);
     updateItems(options);
   };
 
-  const optionOnClick = (id: string) => {
+  const toggleOptionSelection = (id: string) => {
     setSelections(
       selections.includes(id)
         ? selections.filter((sel) => sel !== id)
@@ -71,7 +73,7 @@ export default function MultiSelectDropdown({
         <MultiSelectDropdownOptions
           options={options}
           selections={selections}
-          onOptionClick={optionOnClick}
+          onOptionClick={toggleOptionSelection}
         />
       </FadeComponent>
     </div>
