@@ -25,7 +25,9 @@ export default function MultiSelectDropdownInput({
     setPlaceholder(
       !selections.length
         ? "Add or select your fields of interest"
-        : selections.join(", ")
+        : selections.length <= 3
+        ? selections.join(", ")
+        : `${selections.length} Interests`
     );
   }, [selections]);
 
