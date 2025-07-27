@@ -1,34 +1,56 @@
-@import './vars';
-@import './mixins';
+@import "./vars";
+@import "./mixins";
 
 .input {
-    color: $blue;
-    border: none;
-    background: $white;
-    padding: 0 1.5rem;
-    outline: none;
-    @include box(100%, 5px);
-    &Wrapper {
-        border: 1px solid $ghost;
-        height: 3rem;
-        border-radius: 1.5rem;
-        overflow: hidden;
-        transition: box-shadow 0.15s ease-in-out, border 0.15s ease-in-out;
-        position: relative;
-        &:focus-within {
-            border-color: $blue;
-            box-shadow: 0 0 0.5rem 0 $blue;
-        }
+  color: $blue;
+  border: none;
+  background: $white;
+  padding: 0 1.5rem;
+  outline: none;
+  @include box(100%, 1.5re);
+  font-size: 1;
+  &Wrapper {
+    border: 1px solid $ghost;
+    height: 3rem;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    transition: box-shadow 0.15s ease-in-out, border 0.15s ease-in-out;
+    position: relative;
+    &:focus-within {
+      border-color: $blue;
+      box-shadow: 0 0 0.5rem 0 $blue;
     }
+  }
 }
-.icon {
+.button {
+  position: absolute;
+  right: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  @include box(2rem, 50%);
+  display: flex;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.35s ease-in-out;
+  &:focus {
+    border: none;
+    outline: none;
+  }
+  &:hover {
+    background-color: $surface;
+  }
+  .icon {
     color: $gray;
     fill: $gray;
-    position: absolute;
-    right: 1.5rem;
-    top: 50%;
-    transform: translateY(-50%);
-    .open {
-        transform: translateY(-50%) rotateZ(180);
+    transition: transform 0.35s ease-in-out;
+  }
+  &.open {
+    .icon {
+      transform: rotateX(180deg);
     }
+  }
 }

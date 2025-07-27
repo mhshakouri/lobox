@@ -29,8 +29,12 @@ export default function MultiSelectDropdownInput({
     (event.target as HTMLInputElement).value = "";
   };
 
+  const openList = () => {
+    if (canOpenList) toggleList(true);
+  };
+
   const onInputFocus: ReactEventHandler<HTMLInputElement> = () => {
-    toggleList(true);
+    openList();
   };
 
   const onChevronClick: ReactEventHandler<HTMLButtonElement> = () => {
@@ -40,21 +44,23 @@ export default function MultiSelectDropdownInput({
   return (
     <div className={styles.inputWrapper}>
       <input
+        name="field-of-interest"
         className={styles.input}
         type="text"
         onKeyDown={submitValue}
         onChange={updateInput}
         onInput={updateInput}
         onFocus={onInputFocus}
-        placeholder="Add and select your fields of interests"
+        placeholder="Add or select your fields of interest"
         defaultValue={inputValue}
       />
       {canOpenList ? (
-        <button type="button" onClick={onChevronClick}>
-          <FaIcon
-            iconName="FaChevronDown"
-            className={clx(styles.icon, { [styles.open]: listOpen })}
-          />
+        <button
+          type="button"
+          onClick={onChevronClick}
+          className={clx(styles.button, { [styles.open]: listOpen })}
+        >
+          <FaIcon iconName="FaChevronDown" className={styles.icon} />
         </button>
       ) : (
         <></>
