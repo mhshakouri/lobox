@@ -1,4 +1,5 @@
 import {
+  useEffect,
   useState,
   type KeyboardEventHandler,
   type ReactEventHandler,
@@ -14,8 +15,18 @@ export default function MultiSelectDropdownInput({
   canOpenList,
   toggleList,
   listOpen,
+  selections,
 }: IMultiSelectDropdownInputProps) {
   const [inputValue, setInputValue] = useState<string>("");
+  const [placeholder, setPlaceholder] = useState<string>("");
+
+  useEffect(() => {
+    setPlaceholder(
+      !selections.length
+        ? "Add or select your fields of interest"
+        : selections.join(", ")
+    );
+  }, [selections]);
 
   const updateInput: ReactEventHandler<HTMLInputElement> = (event) => {
     const value = (event.target as HTMLInputElement).value;
@@ -51,7 +62,7 @@ export default function MultiSelectDropdownInput({
         onChange={updateInput}
         onInput={updateInput}
         onFocus={onInputFocus}
-        placeholder="Add or select your fields of interest"
+        placeholder={placeholder}
         defaultValue={inputValue}
       />
       {canOpenList ? (

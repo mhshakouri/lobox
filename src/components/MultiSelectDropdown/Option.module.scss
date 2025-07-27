@@ -1,20 +1,30 @@
 @use "../../styles/_vars";
+@use "../../styles/_mixins";
 
 .option {
   background-color: vars.$white;
   cursor: pointer;
+  @include mixins.size(100%, 3rem);
+  border-radius: 0.5rem;
   button {
     background-color: unset;
     outline: none;
     border: none;
     color: vars.$gray;
-    width: 100%;
+    @include mixins.box(100%, 0.5rem);
+    position: relative;
+    display: flex;
+    padding: 0 1.5rem;
+    align-items: center;
+    .icon {
+      position: absolute;
+      right: 1.5rem;
+    }
   }
-}
-
-.selected {
-  background: vars.$lightblue;
-  button {
-    color: vars.$blue;
+  &.selected {
+    background: vars.$lightblue;
+    button {
+      color: vars.$blue;
+    }
   }
 }

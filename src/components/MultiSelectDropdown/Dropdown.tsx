@@ -1,14 +1,28 @@
 import styles from "./Dropdown.module.scss";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MultiSelectDropdownOption from "./Option";
-import type { IMultiSelectDropdownOption } from "./types";
+import type {
+  IMultiSelectDropdownOption,
+  IMultiSelectDropdownProps,
+} from "./types";
 import MultiSelectDropdownInput from "./Input";
 import useClickOutside from "../../hooks/useClickOutside";
 
-export default function MultiSelectDropdown() {
+export default function MultiSelectDropdown({
+  items,
+  selectedItems,
+}: IMultiSelectDropdownProps) {
   const [options, setOptions] = useState<IMultiSelectDropdownOption[]>([]);
   const [selections, setSelections] = useState<string[]>([]);
   const [listOpen, setListOpen] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (items?.length) setOptions(items);
+  }, [items ?? []]);
+
+  useEffect(() => {
+    if (selectedItems?.length) setSelections(selectedItems);
+  }, [selectedItems ?? []]);
 
   const ref = useClickOutside<HTMLDivElement>(() => {
     setListOpen(false);
@@ -20,7 +34,6 @@ export default function MultiSelectDropdown() {
       {
         value,
         id: crypto.randomUUID(),
-        selected: false,
       },
     ]);
     setListOpen(true);
@@ -42,6 +55,10 @@ export default function MultiSelectDropdown() {
     setListOpen(!listOpen);
   };
 
+  const selectionsByText = options
+    .filter((item) => selections.includes(item.id))
+    .map((item) => item.value);
+
   const optionsList = options.map(({ value, id }) => (
     <MultiSelectDropdownOption
       value={value}
@@ -60,8 +77,15 @@ export default function MultiSelectDropdown() {
         canOpenList={Boolean(options.length)}
         toggleList={toggleListOpen}
         listOpen={listOpen}
+        selections={selectionsByText}
       />
-      {listOpen ? <ul className={styles.optionsList}>{optionsList}</ul> : <></>}
+      {listOpen ? (
+        <div className={styles.box}>
+          <ul className={styles.list}>{optionsList}</ul>
+        </div>
+      ) : (
+        <></>
+      )}
     </div>
   );
 }

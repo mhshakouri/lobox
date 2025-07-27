@@ -5,26 +5,26 @@
   color: vars.$blue;
   border: none;
   background: vars.$white;
-  padding: 0 1.5rem;
+  padding: 0 1rem;
   outline: none;
-  @include mixins.box(100%, 1.5re);
+  @include mixins.box(100%, 1rem);
   font-size: 1;
   &Wrapper {
     border: 1px solid vars.$ghost;
     height: 3rem;
-    border-radius: 1.5rem;
+    border-radius: 1rem;
     overflow: hidden;
     transition: box-shadow 0.15s ease-in-out, border 0.15s ease-in-out;
     position: relative;
+    display: flex;
     &:focus-within {
-      border-color: vars.$blue;
-      box-shadow: 0 0 0.5rem 0 vars.$blue;
+      box-shadow: 0 0 0.5rem 1px vars.$blue;
     }
   }
 }
 .button {
   position: absolute;
-  right: 1.5rem;
+  right: 1rem;
   top: 50%;
   transform: translateY(-50%);
   @include mixins.box(2rem, 50%);

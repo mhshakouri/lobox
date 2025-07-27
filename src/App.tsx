@@ -1,13 +1,16 @@
-import './App.scss'
-import MultiSelectDropdown from './components/MultiSelectDropdown/dropdown'
+import "./App.scss";
+import MultiSelectDropdown from "./components/MultiSelectDropdown/Dropdown";
+import mockData from "./constants/mockData";
 
 function App() {
-
   return (
     <>
-      <MultiSelectDropdown></MultiSelectDropdown>
+      <MultiSelectDropdown
+        items={mockData.items}
+        selectedItems={mockData.selectedItems}
+      />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
