@@ -1,0 +1,9 @@
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin box($size, $radius: 0) {
+  @include size($size, $size);
+  border-radius: $radius;
+}
