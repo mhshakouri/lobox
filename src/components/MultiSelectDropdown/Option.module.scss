@@ -1,5 +1,9 @@
 @import './_vars';
 
-.dropdown {
+.option {
+    background: $white;
+}
+
+.selected {
     background: $lightblue;
 }

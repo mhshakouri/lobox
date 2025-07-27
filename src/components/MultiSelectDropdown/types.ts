@@ -1,14 +1,21 @@
+import type { ReactEventHandler } from "react"
+
 interface IMultiSelectDropdownOption {
     value: string
     id: string
+    selected: boolean
 }
-type IMultiSelectDropdownOptionProps = Pick<IMultiSelectDropdownOption, 'value'>
+
+interface IMultiSelectDropdownOptionProps extends Omit<IMultiSelectDropdownOption, 'id'> {
+    onClick: ReactEventHandler
+}
+
 interface IMultiSelectDropdownOptionsProps {
     options: IMultiSelectDropdownOption[]
 }
 
 interface IMultiSelectDropdownInputProps {
-    value: string
+    onKeyDown: ReactEventHandler
 }
 
 export type {
