@@ -12,6 +12,8 @@ import FadeComponent from "../FadeComponent/FadeComponent";
 export default function MultiSelectDropdown({
   items,
   selectedItems,
+  updateSelections,
+  updateItems,
 }: IMultiSelectDropdownProps) {
   const [options, setOptions] = useState<IMultiSelectDropdownOption[]>([]);
   const [selections, setSelections] = useState<string[]>([]);
@@ -38,6 +40,7 @@ export default function MultiSelectDropdown({
       },
     ]);
     setListOpen(true);
+    updateItems(options);
   };
 
   const optionOnClick = (id: string) => {
@@ -46,6 +49,7 @@ export default function MultiSelectDropdown({
         ? selections.filter((sel) => sel !== id)
         : [...selections, id]
     );
+    updateSelections(selections);
   };
 
   const toggleListOpen = (value?: boolean) => {

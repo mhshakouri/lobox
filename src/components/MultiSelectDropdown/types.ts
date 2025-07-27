@@ -13,6 +13,8 @@ interface IMultiSelectDropdownOptionItemInProps
 interface IMultiSelectDropdownProps {
   items: IMultiSelectDropdownOption[];
   selectedItems: string[];
+  updateSelections: (selections: string[]) => void;
+  updateItems: (items: IMultiSelectDropdownOption[]) => void;
 }
 
 interface IMultiSelectDropdownOptionProps
