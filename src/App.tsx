@@ -1,10 +1,11 @@
 import './App.scss'
+import MultiSelectDropdown from './components/MultiSelectDropdown/dropdown'
 
 function App() {
 
   return (
     <>
-      <h1>Hello Lobox!</h1>
+      <MultiSelectDropdown></MultiSelectDropdown>
     </>
   )
 }
