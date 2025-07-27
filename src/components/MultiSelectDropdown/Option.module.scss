@@ -22,6 +22,12 @@
       display: flex;
       place-content: center;
     }
+    .title {
+      display: flex;
+      justify-content: center;
+      justify-items: center;
+      gap: 0.5rem;
+    }
   }
   &.selected {
     background: vars.$lightblue;

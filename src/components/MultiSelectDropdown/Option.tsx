@@ -22,11 +22,9 @@ export default function MultiSelectDropdownOption({
   return (
     <li className={cx(styles.option, { [styles.selected]: selected })}>
       <button type="button" onClick={onClick}>
-        <span>
+        <span className={styles.title}>
           {renderedSelectiontext}
-          <FadeComponent show={selected} className={styles.icon}>
-            <DynamicIcon iconName={`Fa${value}` as FaIconName} />
-          </FadeComponent>
+          <DynamicIcon iconName={`Fa${value}` as FaIconName} />
         </span>
         <FadeComponent show={selected} className={styles.icon}>
           <DynamicIcon iconName={`FaCheck`} />

@@ -2,15 +2,19 @@ import type { IMultiSelectDropdownOption } from "../components/MultiSelectDropdo
 
 const items: IMultiSelectDropdownOption[] = [
   {
-    value: "Education",
+    value: "JS",
     id: crypto.randomUUID(),
   },
   {
-    value: "Science",
+    value: "React",
     id: crypto.randomUUID(),
   },
   {
-    value: "Art",
+    value: "Code",
+    id: crypto.randomUUID(),
+  },
+  {
+    value: "Fire",
     id: crypto.randomUUID(),
   },
 ];
