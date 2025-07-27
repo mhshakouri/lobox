@@ -7,7 +7,7 @@ import styles from "./Input.module.scss";
 import clx from "classnames";
 import type { IMultiSelectDropdownInputProps } from "./types";
 import capitalizeFirstLetter from "../../utils/capitalizeFirstLetter";
-import FaIcon from "../FaIcon/icon";
+import FaIcon from "../FaIcon/FaIcon";
 
 export default function MultiSelectDropdownInput({
   onSubmitValue,
