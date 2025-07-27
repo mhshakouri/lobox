@@ -1,12 +1,10 @@
-import * as FaIcons from 'react-icons/fa'; // Font Awesome icons
+import * as FaIcons from "react-icons/fa"; // Font Awesome icons
 
-type FaIconName = keyof typeof FaIcons
+type FaIconName = keyof typeof FaIcons;
 
 interface DynamicIconProps {
   iconName: FaIconName;
   className?: string;
-};
-
-export type {
-    DynamicIconProps
 }
+
+export type { FaIconName, DynamicIconProps };
