@@ -22,6 +22,8 @@ interface IMultiSelectDropdownOptionProps
 
 interface IMultiSelectDropdownOptionsProps {
   options: IMultiSelectDropdownOption[];
+  selections: string[];
+  onOptionClick: (id: string) => void;
 }
 
 interface IMultiSelectDropdownInputProps {

@@ -1,0 +1,10 @@
+.fade {
+  transition: opacity 0.15s ease-in-out;
+  &-in {
+    opacity: 1;
+    transition: opacity 0.05s ease-in-out;
+  }
+  &-out {
+    opacity: 0;
+  }
+}

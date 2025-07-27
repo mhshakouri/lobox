@@ -9,6 +9,7 @@ import clx from "classnames";
 import type { IMultiSelectDropdownInputProps } from "./types";
 import capitalizeFirstLetter from "../../utils/capitalizeFirstLetter";
 import FaIcon from "../FaIcon/FaIcon";
+import FadeComponent from "../FadeComponent/FadeComponent";
 
 export default function MultiSelectDropdownInput({
   onSubmitValue,
@@ -65,7 +66,7 @@ export default function MultiSelectDropdownInput({
         placeholder={placeholder}
         defaultValue={inputValue}
       />
-      {canOpenList ? (
+      <FadeComponent show={canOpenList}>
         <button
           type="button"
           onClick={onChevronClick}
@@ -73,9 +74,7 @@ export default function MultiSelectDropdownInput({
         >
           <FaIcon iconName="FaChevronDown" className={styles.icon} />
         </button>
-      ) : (
-        <></>
-      )}
+      </FadeComponent>
     </div>
   );
 }

@@ -1,12 +1,13 @@
 import styles from "./Dropdown.module.scss";
 import { useEffect, useState } from "react";
-import MultiSelectDropdownOption from "./Option";
 import type {
   IMultiSelectDropdownOption,
   IMultiSelectDropdownProps,
 } from "./types";
 import MultiSelectDropdownInput from "./Input";
 import useClickOutside from "../../hooks/useClickOutside";
+import MultiSelectDropdownOptions from "./Options";
+import FadeComponent from "../FadeComponent/FadeComponent";
 
 export default function MultiSelectDropdown({
   items,
@@ -59,17 +60,6 @@ export default function MultiSelectDropdown({
     .filter((item) => selections.includes(item.id))
     .map((item) => item.value);
 
-  const optionsList = options.map(({ value, id }) => (
-    <MultiSelectDropdownOption
-      value={value}
-      key={id}
-      selected={selections.includes(id)}
-      onClick={() => {
-        optionOnClick(id);
-      }}
-    />
-  ));
-
   return (
     <div className={styles.dropdown} ref={ref}>
       <MultiSelectDropdownInput
@@ -79,13 +69,13 @@ export default function MultiSelectDropdown({
         listOpen={listOpen}
         selections={selectionsByText}
       />
-      {listOpen ? (
-        <div className={styles.box}>
-          <ul className={styles.list}>{optionsList}</ul>
-        </div>
-      ) : (
-        <></>
-      )}
+      <FadeComponent show={listOpen}>
+        <MultiSelectDropdownOptions
+          options={options}
+          selections={selections}
+          onOptionClick={optionOnClick}
+        />
+      </FadeComponent>
     </div>
   );
 }
